@@ -145,7 +145,7 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
    public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException
    {
       HttpSession sess = request.getSession(false);
-      request.logout();
+
 
       if (sess == null)
          return;
@@ -164,6 +164,7 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
          }
 
       }));
+      request.logout();
    }
 
    public String getContainerInfo()
