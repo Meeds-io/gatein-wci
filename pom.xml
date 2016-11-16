@@ -50,7 +50,6 @@
 
   <dependencyManagement>
     <dependencies>
-
       <!-- Import dependency management configuration -->
       <dependency>
         <groupId>org.gatein</groupId>

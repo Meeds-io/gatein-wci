@@ -69,6 +69,8 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
 {
    private final static Logger log = LoggerFactory.getLogger(TC7ServletContainerContext.class);
 
+   private static TC7ServletContainerContext instance;
+
    /** . */
    private final CommandDispatcher dispatcher = new TomcatCommandDispatcher("/tomcatgateinservlet");
 
@@ -89,6 +91,10 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
 
    /** Perform cross-context session invalidation on logout, or not */
    private boolean crossContextLogout = true;
+
+   public static TC7ServletContainerContext getInstanceIfPresent() {
+     return instance;
+   }
 
    public TC7ServletContainerContext(Engine engine)
    {
@@ -230,10 +236,14 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
       }
    }
 
+   public Engine getEngine() {
+     return engine;
+   }
+
    void start()
    {
       ServletContainerFactory.registerContext(this);
-
+      instance = this;
       //
       Container[] childrenContainers = engine.findChildren();
       for (Container childContainer : childrenContainers)
@@ -251,6 +261,7 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
 
    void stop()
    {
+      instance = null;
       engine.removeContainerListener(this);
 
       //
