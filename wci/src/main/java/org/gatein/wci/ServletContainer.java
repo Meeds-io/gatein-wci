@@ -22,6 +22,21 @@
  ******************************************************************************/
 package org.gatein.wci;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.gatein.common.logging.Logger;
 import org.gatein.common.logging.LoggerFactory;
 import org.gatein.wci.api.GateInServlet;
@@ -33,21 +48,6 @@ import org.gatein.wci.command.CommandDispatcher;
 import org.gatein.wci.security.Credentials;
 import org.gatein.wci.spi.ServletContainerContext;
 import org.gatein.wci.spi.WebAppContext;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * A static registry for the servlet container context.
@@ -64,7 +64,7 @@ public final class ServletContainer
    private final Object lock = new Object();
 
    /** The event webapp listeners. */
-   private final ArrayList<WebAppListener> webAppListeners = new ArrayList<WebAppListener>();
+   private final Vector<WebAppListener> webAppListeners = new Vector<WebAppListener>();
 
    /** The event authentication Listeners. */
    private final List<AuthenticationListener> authenticationListeners = new CopyOnWriteArrayList<AuthenticationListener>();
@@ -134,24 +134,21 @@ public final class ServletContainer
     */
    public void register(ServletContainerContext context)
    {
-      synchronized (lock)
-      {
-         if (context == null)
-         {
-            throw new IllegalArgumentException("No null context accepted");
-         }
-
-         //
-         if (registration == null)
-         {
-
+      if (context == null) {
+        throw new IllegalArgumentException("No null context accepted");
+      }
+      //
+      if (registration == null) {
+        synchronized (lock) {
+          if (registration == null) {
             registration = new RegistrationImpl(this, context);
-
+    
             // Installs the call back
             context.setCallback(registration);
-         }
+          }
+        }
       }
-   }
+    }
 
    /**
     * Authentication support.
@@ -263,26 +260,31 @@ public final class ServletContainer
     */
    public boolean addWebAppListener(WebAppListener listener)
    {
-      synchronized (lock)
-      {
-         if (listener == null)
-         {
-            throw new IllegalArgumentException();
-         }
-         if (webAppListeners.contains(listener))
-         {
-            return false;
-         }
-         webAppListeners.add(listener);
-         for (Object response : webAppMap.values())
-         {
-            WebApp webApp = (WebApp)response;
+      if (listener == null) {
+        throw new IllegalArgumentException();
+      }
+      if (webAppListeners.contains(listener)) {
+        return false;
+      }
+
+      synchronized (lock) {
+        if (webAppListeners.contains(listener)) {
+          return false;
+        }
+        webAppListeners.add(listener);
+      }
+
+      if(!webAppMap.isEmpty()) {
+        for (Object response : webAppMap.values()) {
+          WebApp webApp = (WebApp) response;
+          synchronized (webApp) {
             WebAppLifeCycleEvent event = new WebAppLifeCycleEvent(webApp, WebAppLifeCycleEvent.ADDED);
             safeFireEvent(listener, event);
-         }
-         return true;
+          }
+        }
       }
-   }
+      return true;
+    }
 
    /**
     * Removes a web listener.
@@ -292,27 +294,21 @@ public final class ServletContainer
     */
    public boolean removeWebAppListener(WebAppListener listener)
    {
-      synchronized (lock)
-      {
-         if (listener == null)
-         {
-            throw new IllegalArgumentException();
-         }
-         if (webAppListeners.remove(listener))
-         {
-            for (WebApp webApp : webAppMap.values())
-            {
-               WebAppLifeCycleEvent event = new WebAppLifeCycleEvent(webApp, WebAppLifeCycleEvent.REMOVED);
-               safeFireEvent(listener, event);
-            }
-            return true;
-         }
-         else
-         {
-            return false;
-         }
+      if (listener == null) {
+        throw new IllegalArgumentException();
       }
-   }
+      if (webAppListeners.remove(listener)) {
+        for (WebApp webApp : webAppMap.values()) {
+          synchronized (webApp) {
+            WebAppLifeCycleEvent event = new WebAppLifeCycleEvent(webApp, WebAppLifeCycleEvent.REMOVED);
+            safeFireEvent(listener, event);
+          }
+        }
+        return true;
+      } else {
+        return false;
+      }
+    }
 
    private void safeFireEvent(WebAppListener listener, WebAppEvent event)
    {
@@ -403,14 +399,12 @@ public final class ServletContainer
     */
    public void visit(ServletContainerVisitor visitor)
    {
-      synchronized (lock)
-      {
-         for (WebApp webApp: webAppMap.values())
-         {
+      if (!webAppMap.isEmpty()) {
+        for (WebApp webApp : webAppMap.values()) {
             visitor.accept(webApp);
-         }
+        }
       }
-   }
+    }
 
    private static class RegistrationImpl implements ServletContainerContext.Registration
    {
