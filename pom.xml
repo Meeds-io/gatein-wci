@@ -4,9 +4,9 @@
 
   <name>GateIn - Web Container Integration</name>
 
-  <groupId>org.gatein.wci</groupId>
+  <groupId>org.exoplatform.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>2.6.x-PLF-SNAPSHOT</version>
+  <version>5.0.x-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -71,50 +71,50 @@
         <version>${version.gatein.common}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-wci</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-tomcat7</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-jboss7</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-glassfish3</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-jetty8</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-test-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-test-core</artifactId>
         <version>${project.version}</version>
         <type>test-jar</type>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-test-core</artifactId>
         <version>${project.version}</version>
         <type>test-jar</type>
         <classifier>test-sources</classifier>
       </dependency>
       <dependency>
-        <groupId>org.gatein.wci</groupId>
+        <groupId>org.exoplatform.gatein.wci</groupId>
         <artifactId>wci-test-jboss7-dependencies</artifactId>
         <version>${project.version}</version>
       </dependency>
