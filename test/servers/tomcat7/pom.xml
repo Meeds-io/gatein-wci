@@ -31,7 +31,7 @@
     <dependency>
       <groupId>org.jboss.arquillian.container</groupId>
       <artifactId>arquillian-tomcat-embedded-7</artifactId>
-      <version>1.0.0.CR3</version>
+      <version>${version.arquillian.tomcat}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

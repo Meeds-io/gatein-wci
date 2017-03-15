@@ -112,6 +112,7 @@ public class RedeployServiceTestCase extends AbstractWCITestCase
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "deploymentwci.war");
       war.setWebXML("org/gatein/wci/test/tomcat7/deployment/web.xml");
+      war.addAsManifestResource("org/gatein/wci/test/tomcat7/deployment/context.xml", "context.xml");
       return war;
    }
 }

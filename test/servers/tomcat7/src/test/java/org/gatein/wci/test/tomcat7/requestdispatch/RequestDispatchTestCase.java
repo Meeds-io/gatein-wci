@@ -36,6 +36,7 @@ public class RequestDispatchTestCase extends AbstractRequestDispatchTestCase
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "rdwci.war");
       war.setWebXML("org/gatein/wci/test/tomcat7/requestdispatch/web.xml");
+      war.addAsManifestResource("org/gatein/wci/test/tomcat7/requestdispatch/context.xml", "context.xml");
 
       //
       war.addClass(RequestDispatchServlet.class);

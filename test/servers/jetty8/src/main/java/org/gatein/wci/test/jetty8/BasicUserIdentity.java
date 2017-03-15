@@ -24,7 +24,7 @@ import javax.security.auth.Subject;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
- * @date 9/28/12
+ * @since 9/28/12
  */
 public class BasicUserIdentity implements UserIdentity
 {

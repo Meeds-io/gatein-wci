@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
- * @date 9/28/12
+ * @since 9/28/12
  */
 public class BasicLoginService implements LoginService
 {

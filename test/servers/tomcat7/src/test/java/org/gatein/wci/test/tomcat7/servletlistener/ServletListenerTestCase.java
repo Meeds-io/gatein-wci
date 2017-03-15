@@ -16,6 +16,7 @@ public class ServletListenerTestCase extends AbstractServletListenerTestCase
    static
    {
       AbstractServletListenerTestCase.webXml = "org/gatein/wci/test/tomcat7/servletlistener/listener_web.xml";
+      AbstractServletListenerTestCase.contextXml = "org/gatein/wci/test/tomcat7/servletlistener/context.xml";
    }
 
    @Deployment(name = "servletlistenerwci")
@@ -23,6 +24,7 @@ public class ServletListenerTestCase extends AbstractServletListenerTestCase
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "servletlistenerwci.war");
       war.setWebXML("org/gatein/wci/test/tomcat7/servletlistener/web.xml");
+      war.addAsManifestResource("org/gatein/wci/test/tomcat7/servletlistener/context.xml", "context.xml");
       return war;
    }
 }

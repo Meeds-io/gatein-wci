@@ -25,7 +25,7 @@ import org.gatein.common.logging.LoggerFactory;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
- * @date 9/24/12
+ * @since 9/24/12
  */
 public class Jetty8Bean extends AbstractLifeCycle
 {

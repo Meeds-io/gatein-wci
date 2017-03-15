@@ -23,7 +23,7 @@ import org.gatein.wci.jetty.Jetty8Bean;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
- * @date 10/3/12
+ * @since 10/3/12
  *
  * Need this class as a trick to inject Jetty8Bean to Server object as we could not configure Jetty8Bean via jetty.xml
  * in the scope of embedded Jetty container

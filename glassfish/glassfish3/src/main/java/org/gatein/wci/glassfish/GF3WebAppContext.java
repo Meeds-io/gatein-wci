@@ -30,7 +30,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
- * @date 4/13/12
+ * @since 4/13/12
  */
 public class GF3WebAppContext extends CatalinaWebAppContext
 {

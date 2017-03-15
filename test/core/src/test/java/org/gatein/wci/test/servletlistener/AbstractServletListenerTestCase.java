@@ -21,6 +21,7 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
 {
 
    protected static String webXml;
+   protected static String contextXml;
 
    @Deployment(name = "servletlistenersapp")
    public static WebArchive deployment()
@@ -28,6 +29,7 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
       WebArchive war = ShrinkWrap.create(WebArchive.class, "servletlistenerapp.war");
       war.addClass(ServletEventCountListener.class);
       war.setWebXML(webXml);
+      war.addAsManifestResource(contextXml, "context.xml");
       war.addAsWebInfResource(getJBossDeploymentStructure("servletlistenerwci"), "jboss-deployment-structure.xml");
       return war;
    }
