@@ -10,6 +10,6 @@
    <name>GateIn - WCI Tomcat compatibility component</name>
 
    <modules>
-      <module>tomcat7</module>
+      <module>tomcat8</module>
    </modules>
 </project>

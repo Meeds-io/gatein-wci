@@ -23,8 +23,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.Asset;
 import org.jboss.shrinkwrap.api.asset.ByteArrayAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.runner.RunWith;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
@@ -36,10 +35,8 @@ public abstract class AbstractWCITestCase
    {
       WebArchive war = name != null ? ShrinkWrap.create(WebArchive.class, name) : ShrinkWrap.create(WebArchive.class);
       war.addAsResource("META-INF/services/org.jboss.msc.service.ServiceActivator");
-      war.addAsLibraries(DependencyResolvers.
-         use(MavenDependencyResolver.class).
-         loadEffectivePom("../dependencies/pom.xml").importAllDependencies().
-         resolveAsFiles());
+      war.addAsLibraries(Maven.resolver().loadPomFromFile("../dependencies/pom.xml")
+              .importRuntimeAndTestDependencies().resolve().withTransitivity().asFile());
       war.addClass(AbstractWCITestCase.class);
       return war;
    }
