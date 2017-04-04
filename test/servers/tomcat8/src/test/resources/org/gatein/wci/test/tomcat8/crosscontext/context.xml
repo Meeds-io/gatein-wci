@@ -1,0 +1,6 @@
+<Context debug="0" reloadable="true" privileged="true">
+
+  <Realm className="org.gatein.wci.test.tomcat8.AuthenticationRealm"/>
+  <Loader delegate="true"/>
+
+</Context>

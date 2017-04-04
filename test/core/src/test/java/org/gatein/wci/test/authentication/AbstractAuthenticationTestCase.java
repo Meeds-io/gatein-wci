@@ -37,6 +37,8 @@ import java.util.Collections;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public abstract class AbstractAuthenticationTestCase extends AbstractWCITestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    private static URL readURL(InputStream in) throws IOException
    {
@@ -55,7 +57,7 @@ public abstract class AbstractAuthenticationTestCase extends AbstractWCITestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void testFoo(@ArquillianResource URL deploymentURL) throws Exception
+   public void testFoo() throws Exception
    {
       AuthenticationServlet.status = 0;
       HttpURLConnection conn = (HttpURLConnection)deploymentURL.openConnection();
@@ -75,7 +77,7 @@ public abstract class AbstractAuthenticationTestCase extends AbstractWCITestCase
    @Test
    @RunAsClient
    @InSequence(2)
-   public void testFoo2(@ArquillianResource URL deploymentURL) throws Exception
+   public void testFoo2() throws Exception
    {
       HttpURLConnection conn = (HttpURLConnection)deploymentURL.openConnection();
       conn.connect();
@@ -96,7 +98,7 @@ public abstract class AbstractAuthenticationTestCase extends AbstractWCITestCase
    @Test
    @RunAsClient
    @InSequence(4)
-   public void testFoo3(@ArquillianResource URL deploymentURL) throws Exception
+   public void testFoo3() throws Exception
    {
       HttpURLConnection conn = (HttpURLConnection)deploymentURL.openConnection();
       conn.connect();

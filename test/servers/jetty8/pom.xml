@@ -28,8 +28,8 @@
     <!-- Arquillian container -->
     <dependency>
       <groupId>org.jboss.arquillian.container</groupId>
-      <artifactId>arquillian-jetty-embedded-7</artifactId>
-      <version>1.0.0.CR1</version>
+      <artifactId>arquillian-jetty-embedded-8</artifactId>
+      <version>${version.arquillian.jetty}</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>

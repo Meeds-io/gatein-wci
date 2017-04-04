@@ -19,6 +19,8 @@ import java.net.URL;
  */
 public abstract class AbstractServletListenerTestCase extends AbstractWCITestCase
 {
+   @ArquillianResource
+   URL requestDispatchURL;
 
    protected static String webXml;
    protected static String contextXml;
@@ -38,7 +40,7 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
    @InSequence(0)
    @RunAsClient
    @OperateOnDeployment("servletlistenerwci")
-   public void testListener(@ArquillianResource URL requestDispatchURL) throws Exception
+   public void testListener() throws Exception
    {
       HttpURLConnection conn = (HttpURLConnection) requestDispatchURL.openConnection();
       conn.connect();
