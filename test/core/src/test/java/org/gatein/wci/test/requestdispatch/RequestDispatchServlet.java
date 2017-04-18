@@ -33,6 +33,7 @@ import java.io.IOException;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class RequestDispatchServlet extends HttpServlet
 {
+  private static final long serialVersionUID = -2118632984249338227L;
 
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException

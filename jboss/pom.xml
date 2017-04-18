@@ -7,9 +7,9 @@
    <modelVersion>4.0.0</modelVersion>
    <artifactId>wci-jboss</artifactId>
    <packaging>pom</packaging>
-   <name>GateIn - WCI JBoss compatibility component</name>
+   <name>GateIn - WCI JBoss EAP/Wildfly compatibility component</name>
 
    <modules>
-      <module>jboss7</module>
+      <module>wildfly10</module>
    </modules>
 </project>

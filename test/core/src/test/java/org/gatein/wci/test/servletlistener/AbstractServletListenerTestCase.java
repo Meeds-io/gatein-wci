@@ -31,7 +31,9 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
       WebArchive war = ShrinkWrap.create(WebArchive.class, "servletlistenerapp.war");
       war.addClass(ServletEventCountListener.class);
       war.setWebXML(webXml);
-      war.addAsManifestResource(contextXml, "context.xml");
+      if(contextXml != null) {
+        war.addAsManifestResource(contextXml, "context.xml");
+      }
       war.addAsWebInfResource(getJBossDeploymentStructure("servletlistenerwci"), "jboss-deployment-structure.xml");
       return war;
    }

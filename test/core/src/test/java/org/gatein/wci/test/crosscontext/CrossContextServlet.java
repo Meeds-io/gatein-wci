@@ -36,6 +36,7 @@ import java.io.IOException;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class CrossContextServlet extends HttpServlet
 {
+   private static final long serialVersionUID = 7957282049982164214L;
 
    /** . */
    static int status = 0;
