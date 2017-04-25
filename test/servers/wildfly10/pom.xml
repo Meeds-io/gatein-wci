@@ -1,19 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <parent>
       <groupId>org.exoplatform.gatein.wci</groupId>
-      <artifactId>wci-test-parent</artifactId>
+      <artifactId>wci-test-servers</artifactId>
       <version>5.0.x-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>wci-test-servers</artifactId>
+   <artifactId>wci-test-wildfly10</artifactId>
    <packaging>pom</packaging>
-   <name>GateIn - WCI test servers</name>
+   <name>GateIn - WCI test Wildfly 10</name>
 
    <modules>
-     <module>glassfish3</module>
-     <module>tomcat8</module>
-     <module>wildfly10</module>
-     <module>jetty8</module>
+     <module>dependencies</module>
+     <module>run</module>
    </modules>
 
   <dependencies>

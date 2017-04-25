@@ -38,7 +38,7 @@
     <version.gatein.dep>1.4.0.Final</version.gatein.dep>
 
     <!-- Servers -->
-    <version.jboss.as>7.1.1.Final</version.jboss.as>
+    <version.wildfly>10.1.0.Final</version.wildfly>
     <version.jetty8>8.1.7.v20120910</version.jetty8>
     <version.tomcat8>8.5.13</version.tomcat8>
 
@@ -47,9 +47,13 @@
     <version.arquillian.tomcat>1.0.0</version.arquillian.tomcat>
     <version.arquillian.glassfish>1.0.0.CR3</version.arquillian.glassfish>
     <version.arquillian.jetty>1.0.0.CR3</version.arquillian.jetty>
+    <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
     <version.shrinkwrap>1.2.6</version.shrinkwrap>
     <version.shrinkwrap.resolver>2.2.5</version.shrinkwrap.resolver>
     <version.servlet-api>3.1.0</version.servlet-api>
+    <version.jboss.javaee>1.0.0.Final</version.jboss.javaee>
+    <version.jboss.logging>3.3.0.Final</version.jboss.logging>
+    <version.wildfly.controller>2.2.0.Final</version.wildfly.controller>
   </properties>
 
   <dependencyManagement>
@@ -86,7 +90,7 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.gatein.wci</groupId>
-        <artifactId>wci-jboss7</artifactId>
+        <artifactId>wci-wildfly10</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -119,7 +123,7 @@
       </dependency>
       <dependency>
         <groupId>org.exoplatform.gatein.wci</groupId>
-        <artifactId>wci-test-jboss7-dependencies</artifactId>
+        <artifactId>wci-test-wildfly10-dependencies</artifactId>
         <version>${project.version}</version>
       </dependency>
 
@@ -154,6 +158,16 @@
         <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
         <version>${version.shrinkwrap.resolver}</version>
       </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.protocol</groupId>
+        <artifactId>arquillian-protocol-servlet</artifactId>
+        <version>${version.arquillian}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.arquillian</groupId>
+        <artifactId>wildfly-arquillian-container-managed</artifactId>
+        <version>${version.arquillian.wildfly}</version>
+      </dependency>
 
       <!-- Jetty8 -->
       <dependency>
@@ -182,7 +196,7 @@
         <version>${version.jetty8}</version>
       </dependency>
 
-      <!-- Tomcat7 -->
+      <!-- Tomcat8 -->
       <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-catalina</artifactId>
@@ -204,14 +218,30 @@
         <version>${version.servlet-api}</version>
       </dependency>
 
-      <!-- JBoss 7 -->
+      <!-- Wildfly 10 -->
       <dependency>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-dist</artifactId>
-        <version>${version.jboss.as}</version>
+        <groupId>org.wildfly</groupId>
+        <artifactId>wildfly-dist</artifactId>
+        <version>${version.wildfly}</version>
         <type>zip</type>
       </dependency>
-
+      <dependency>
+        <groupId>org.wildfly.core</groupId>
+        <artifactId>wildfly-controller</artifactId>
+        <version>${version.wildfly.controller}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-7.0</artifactId>
+        <version>${version.jboss.javaee}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.logging</groupId>
+        <artifactId>jboss-logging</artifactId>
+        <version>${version.jboss.logging}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

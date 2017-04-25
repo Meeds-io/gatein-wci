@@ -18,10 +18,12 @@
  */
 package org.gatein.wci.test;
 
+import org.codehaus.plexus.util.StringUtils;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.Asset;
 import org.jboss.shrinkwrap.api.asset.ByteArrayAsset;
+import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.runner.RunWith;
@@ -31,7 +33,17 @@ import org.junit.runner.RunWith;
 public abstract class AbstractWCITestCase
 {
 
-   protected static WebArchive wciJBoss7Deployment(String name)
+   protected static WebArchive wciWildfly10Deployment(String name)
+   {
+      WebArchive war = name != null ? ShrinkWrap.create(WebArchive.class, name) : ShrinkWrap.create(WebArchive.class);
+      war.addAsResource("META-INF/services/org.jboss.msc.service.ServiceActivator");
+      war.addAsLibraries(Maven.resolver().loadPomFromFile("../dependencies/pom.xml")
+              .importRuntimeAndTestDependencies().resolve().withTransitivity().asFile());
+      war.addClass(AbstractWCITestCase.class);
+      return war;
+   }
+
+   protected static WebArchive wciWildfly10Deployment(EnterpriseArchive ear, String name)
    {
       WebArchive war = name != null ? ShrinkWrap.create(WebArchive.class, name) : ShrinkWrap.create(WebArchive.class);
       war.addAsResource("META-INF/services/org.jboss.msc.service.ServiceActivator");
@@ -43,15 +55,17 @@ public abstract class AbstractWCITestCase
 
    protected static Asset getJBossDeploymentStructure(String module)
    {
-      return getAsset("" +
-         "<jboss-deployment-structure>" +
-         "<deployment>" +
-         "<dependencies>" +
-         "<module name=\"deployment." + module + ".war\" />" +
-         "</dependencies>" +
-         "</deployment>" +
-         "</jboss-deployment-structure>" +
-         "");
+     String content = "<jboss-deployment-structure>" +
+       "<deployment>" +
+       "<dependencies>" +
+       "<module name=\"org.wildfly.extension.undertow\" export=\"true\" />";
+     if (StringUtils.isNotBlank(module)) {
+       content += "<module name=\"deployment." + module + ".war\" export=\"true\" />";
+     }
+     content += "</dependencies>" +
+       "</deployment>" +
+       "</jboss-deployment-structure>";
+     return getAsset(content);
    }
 
    protected static Asset getAsset(String content)
