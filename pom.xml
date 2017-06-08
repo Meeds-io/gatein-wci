@@ -35,7 +35,7 @@
    <autoVersionSubmodules>true</autoVersionSubmodules>
 
     <version.gatein.common>2.2.2.Final</version.gatein.common>
-    <version.gatein.dep>1.4.0.Final</version.gatein.dep>
+    <org.exoplatform.gatein.dep.version>1.5.x-SNAPSHOT</org.exoplatform.gatein.dep.version>
 
     <!-- Servers -->
     <version.wildfly>10.1.0.Final</version.wildfly>
@@ -60,9 +60,9 @@
     <dependencies>
       <!-- Import dependency management configuration -->
       <dependency>
-        <groupId>org.gatein</groupId>
+        <groupId>org.exoplatform.gatein</groupId>
         <artifactId>gatein-dep</artifactId>
-        <version>${version.gatein.dep}</version>
+        <version>${org.exoplatform.gatein.dep.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
