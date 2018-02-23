@@ -290,6 +290,12 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
    {
       if (!monitoredHosts.contains(host.getName()))
       {
+         //
+         monitoredHosts.add(host.getName());
+
+         //
+         host.addContainerListener(this);
+
          Container[] childrenContainers = host.findChildren();
          for (Container childContainer : childrenContainers)
          {
@@ -299,12 +305,6 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
                registerContext(context);
             }
          }
-
-         //
-         host.addContainerListener(this);
-
-         //
-         monitoredHosts.add(host.getName());
       }
    }
 
@@ -332,35 +332,43 @@ public class TC7ServletContainerContext implements ServletContainerContext, Cont
 
    private void registerContext(StandardContext context)
    {
-      if (!monitoredContexts.contains(context.getName()))
-      {
-         context.addLifecycleListener(this);
+      if (monitoredContexts.contains(context.getName())) {
+         return;
+      }
 
-         //
-         if (LifecycleState.STARTED.equals(context.getState()))
-         {
-            start(context);
+      synchronized (monitoredContexts) {
+         if (!monitoredContexts.contains(context.getName())) {
+            //
+            monitoredContexts.add(context.getName());
+
+            context.addLifecycleListener(this);
+
+            //
+            if (LifecycleState.STARTED.equals(context.getState())) {
+               start(context);
+            }
          }
-
-         //
-         monitoredContexts.add(context.getName());
       }
    }
 
    private void unregisterContext(StandardContext context)
    {
-      if (monitoredContexts.contains(context.getName()))
-      {
-         monitoredContexts.remove(context.getName());
+      if (!monitoredContexts.contains(context.getName())) {
+         return;
+      }
 
-         //
-         if (LifecycleState.STARTED.equals(context.getState()))
-         {
-            stop(context);
+      synchronized (monitoredContexts) {
+         if (monitoredContexts.contains(context.getName())) {
+            monitoredContexts.remove(context.getName());
+
+            //
+            if (LifecycleState.STARTED.equals(context.getState())) {
+               stop(context);
+            }
+
+            //
+            context.removeLifecycleListener(this);
          }
-
-         //
-         context.removeLifecycleListener(this);
       }
    }
 
