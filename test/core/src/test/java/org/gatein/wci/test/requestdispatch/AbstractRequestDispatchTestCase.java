@@ -35,7 +35,7 @@ import java.net.URL;
 public abstract class AbstractRequestDispatchTestCase extends AbstractWCITestCase
 {
 
-   @Deployment(name = "rdapp")
+   @Deployment(name = "rdapp", order = 2)
    public static WebArchive deployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "rdapp.war");

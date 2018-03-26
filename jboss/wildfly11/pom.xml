@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <parent>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-jboss</artifactId>
+      <version>5.1.x-SNAPSHOT</version>
+   </parent>
+
+   <modelVersion>4.0.0</modelVersion>
+   <artifactId>wci-wildfly11</artifactId>
+   <packaging>jar</packaging>
+   <name>GateIn - WCI Wildfly 11 compatibility component</name>
+
+   <dependencies>
+     <dependency>
+       <groupId>org.exoplatform.gatein.wci</groupId>
+       <artifactId>wci-wci</artifactId>
+     </dependency>
+
+     <dependency>
+       <groupId>org.wildfly.core</groupId>
+       <artifactId>wildfly-controller</artifactId>
+       <scope>test</scope>
+     </dependency>
+
+     <dependency>
+       <groupId>org.jboss.spec.javax.servlet</groupId>
+       <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+       <version>1.0.0.Final</version>
+       <scope>provided</scope>
+     </dependency>
+
+     <dependency>
+       <groupId>org.wildfly</groupId>
+       <artifactId>wildfly-undertow</artifactId>
+       <version>${version.wildfly}</version>
+       <scope>provided</scope>
+     </dependency>
+
+     <dependency>
+       <groupId>org.wildfly</groupId>
+       <artifactId>wildfly-clustering-web-spi</artifactId>
+       <version>${version.wildfly}</version>
+       <scope>provided</scope>
+     </dependency>
+   </dependencies>
+
+</project>

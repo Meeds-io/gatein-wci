@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
 public abstract class AbstractWCITestCase
 {
 
-   protected static WebArchive wciWildfly10Deployment(String name)
+   protected static WebArchive wciWildfly11Deployment(String name)
    {
       WebArchive war = name != null ? ShrinkWrap.create(WebArchive.class, name) : ShrinkWrap.create(WebArchive.class);
       war.addAsResource("META-INF/services/org.jboss.msc.service.ServiceActivator");
@@ -43,7 +43,7 @@ public abstract class AbstractWCITestCase
       return war;
    }
 
-   protected static WebArchive wciWildfly10Deployment(EnterpriseArchive ear, String name)
+   protected static WebArchive wciWildfly11Deployment(EnterpriseArchive ear, String name)
    {
       WebArchive war = name != null ? ShrinkWrap.create(WebArchive.class, name) : ShrinkWrap.create(WebArchive.class);
       war.addAsResource("META-INF/services/org.jboss.msc.service.ServiceActivator");

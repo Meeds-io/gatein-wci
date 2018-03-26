@@ -16,35 +16,28 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.gatein.wci.test.tomcat8.requestdispatch;
+package org.gatein.wci.test.wildfly11.authentication;
 
-import org.gatein.wci.test.requestdispatch.AbstractCallback;
-import org.gatein.wci.test.requestdispatch.AbstractRequestDispatchTestCase;
-import org.gatein.wci.test.requestdispatch.ExceptionCallback;
-import org.gatein.wci.test.requestdispatch.NormalCallback;
-import org.gatein.wci.test.requestdispatch.RequestDispatchServlet;
+import org.gatein.wci.test.authentication.AbstractAuthenticationTestCase;
+import org.gatein.wci.test.authentication.AuthenticationServlet;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Ignore;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
-public class RequestDispatchTestCase extends AbstractRequestDispatchTestCase
+public class AuthenticationTestCase extends AbstractAuthenticationTestCase
 {
 
-   @Deployment(name = "rdwci", order = 1)
+   @Deployment
    public static WebArchive wciDeployment()
    {
-      WebArchive war = ShrinkWrap.create(WebArchive.class, "rdwci.war");
-      war.setWebXML("org/gatein/wci/test/tomcat8/requestdispatch/web.xml");
-      war.addAsManifestResource("org/gatein/wci/test/tomcat8/requestdispatch/context.xml", "context.xml");
-
-      //
-      war.addClass(RequestDispatchServlet.class);
-      war.addClass(AbstractCallback.class);
-      war.addClass(ExceptionCallback.class);
-      war.addClass(NormalCallback.class);
-
-      //
+      WebArchive war = wciWildfly11Deployment(null);
+      war.setWebXML("org/gatein/wci/test/wildfly11/authentication/web.xml");
+      war.addAsWebInfResource("org/gatein/wci/test/wildfly11/authentication/jboss-web.xml", "jboss-web.xml");
+      war.addAsWebInfResource(getJBossDeploymentStructure(null), "jboss-deployment-structure.xml");
+      war.addClass(AuthenticationServlet.class);
+      war.addClass(AbstractAuthenticationTestCase.class);
       return war;
    }
+
 }
