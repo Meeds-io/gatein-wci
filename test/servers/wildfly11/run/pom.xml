@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <parent>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-test-wildfly11</artifactId>
+      <version>5.1.x-SNAPSHOT</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+   <artifactId>wci-test-wildfly11-run</artifactId>
+   <packaging>jar</packaging>
+   <name>GateIn - WCI test Wildfly 11 (run)</name>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-test-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-test-core</artifactId>
+      <type>test-jar</type>
+    </dependency>
+
+    <!-- -->
+    <dependency>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-wildfly11</artifactId>
+    </dependency>
+
+    <!-- We import this pom that contains the dependencies embedded in the test -->
+    <dependency>
+      <groupId>org.exoplatform.gatein.wci</groupId>
+      <artifactId>wci-test-wildfly11-dependencies</artifactId>
+    </dependency>
+
+    <!-- Arquillian container -->
+    <dependency>
+      <groupId>org.jboss.spec</groupId>
+      <artifactId>jboss-javaee-7.0</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.arquillian</groupId>
+      <artifactId>wildfly-arquillian-container-managed</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.protocol</groupId>
+      <artifactId>arquillian-protocol-servlet</artifactId>
+    </dependency>
+
+    <!--  Required for JBoss JMX Remoting -->
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <systemPropertyVariables>
+              <JBOSS_HOME>${project.build.directory}/servers/wildfly-${version.wildfly}</JBOSS_HOME>
+            </systemPropertyVariables>
+         </configuration>
+          <executions>
+            <execution>
+              <id>default-test</id>
+              <configuration>
+                <forkMode>always</forkMode>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <id>unpack-wildfly</id>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <phase>process-test-sources</phase>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.wildfly</groupId>
+                  <artifactId>wildfly-dist</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/servers</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-wildfly-property-files</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <phase>process-test-resources</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/servers/wildfly-${version.wildfly}/standalone/configuration</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>src/test/wildfly11</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

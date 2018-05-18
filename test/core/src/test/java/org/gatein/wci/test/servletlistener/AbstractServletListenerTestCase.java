@@ -25,7 +25,7 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
    protected static String webXml;
    protected static String contextXml;
 
-   @Deployment(name = "servletlistenersapp")
+   @Deployment(name = "servletlistenersapp", order = 2)
    public static WebArchive deployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "servletlistenerapp.war");

@@ -34,7 +34,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 public class RequestDispatchTestCase extends AbstractRequestDispatchTestCase
 {
 
-   @Deployment(name = "rdwci")
+   @Deployment(name = "rdwci", order = 1)
    public static WebArchive deployWar()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "rdwci.war");

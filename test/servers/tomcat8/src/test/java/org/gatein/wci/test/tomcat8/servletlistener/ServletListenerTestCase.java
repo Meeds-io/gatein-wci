@@ -17,7 +17,7 @@ public class ServletListenerTestCase extends AbstractServletListenerTestCase
       AbstractServletListenerTestCase.contextXml = "org/gatein/wci/test/tomcat8/servletlistener/context.xml";
    }
 
-   @Deployment(name = "servletlistenerwci")
+   @Deployment(name = "servletlistenerwci", order = 1)
    public static WebArchive wciDeployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "servletlistenerwci.war");
