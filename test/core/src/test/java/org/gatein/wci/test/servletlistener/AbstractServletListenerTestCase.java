@@ -34,7 +34,6 @@ public abstract class AbstractServletListenerTestCase extends AbstractWCITestCas
       if(contextXml != null) {
         war.addAsManifestResource(contextXml, "context.xml");
       }
-      war.addAsWebInfResource(getJBossDeploymentStructure("servletlistenerwci"), "jboss-deployment-structure.xml");
       return war;
    }
 

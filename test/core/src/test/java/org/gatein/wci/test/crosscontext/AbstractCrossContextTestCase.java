@@ -39,7 +39,6 @@ public abstract class AbstractCrossContextTestCase extends AbstractWCITestCase
    public static WebArchive deployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "crosscontextapp.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("crosscontextwci"), "jboss-deployment-structure.xml");
       return war;
    }
 

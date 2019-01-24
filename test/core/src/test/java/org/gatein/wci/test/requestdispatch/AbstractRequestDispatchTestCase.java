@@ -39,7 +39,6 @@ public abstract class AbstractRequestDispatchTestCase extends AbstractWCITestCas
    public static WebArchive deployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "rdapp.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("rdwci"), "jboss-deployment-structure.xml");
       return war;
    }
 

@@ -57,7 +57,6 @@ public abstract class AbstractDeploymentTestCase extends AbstractWCITestCase
    public static WebArchive nativeDeployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "deploymentnative.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("deploymentwci"), "jboss-deployment-structure.xml");
       return war;
    }
 
@@ -65,7 +64,6 @@ public abstract class AbstractDeploymentTestCase extends AbstractWCITestCase
    public static WebArchive nativeSkipDeployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "deploymentnativeskip.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("deploymentwci"), "jboss-deployment-structure.xml");
       war.setWebXML(getAsset("" +
          "<!DOCTYPE web-app PUBLIC\n" +
          "\"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN\"\n" +
@@ -85,7 +83,6 @@ public abstract class AbstractDeploymentTestCase extends AbstractWCITestCase
    public static WebArchive nativeSkipGateInDeployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "deploymentnativeskipgatein.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("deploymentwci"), "jboss-deployment-structure.xml");
       war.setWebXML(getAsset("" +
          "<!DOCTYPE web-app PUBLIC\n" +
          "\"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN\"\n" +
@@ -112,7 +109,6 @@ public abstract class AbstractDeploymentTestCase extends AbstractWCITestCase
    public static WebArchive gateInDeployment()
    {
       WebArchive war = ShrinkWrap.create(WebArchive.class, "deploymentgatein.war");
-      war.addAsWebInfResource(getJBossDeploymentStructure("deploymentwci"), "jboss-deployment-structure.xml");
       war.setWebXML(getAsset("" +
          "<!DOCTYPE web-app PUBLIC\n" +
          "\"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN\"\n" +
