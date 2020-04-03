@@ -6,7 +6,7 @@
 
   <groupId>org.exoplatform.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>6.0.x-SNAPSHOT</version>
+  <version>6.0.0-M26</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -19,6 +19,7 @@
     <connection>scm:git:git://github.com/gatein/gatein-wci.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/gatein/gatein-wci.git</developerConnection>
     <url>https://github.com/gatein/gatein-wci</url>
+    <tag>6.0.0-M26</tag>
   </scm>
 
   <properties>
