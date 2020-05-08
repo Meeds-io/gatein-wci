@@ -55,7 +55,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <org.exoplatform.gatein.dep.version>2.0.x-SNAPSHOT</org.exoplatform.gatein.dep.version>
 
     <!-- Servers -->
-    <version.jetty8>8.1.7.v20120910</version.jetty8>
+    <version.jetty8>9.4.28.v20200408</version.jetty8>
     <version.tomcat8>8.5.45</version.tomcat8>
 
     <!-- For testing only -->
