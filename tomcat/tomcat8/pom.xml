@@ -18,21 +18,23 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <parent>
       <groupId>org.exoplatform.gatein.wci</groupId>
-      <artifactId>wci-parent</artifactId>
+      <artifactId>wci-tomcat</artifactId>
       <version>6.2.x-rewards-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>wci-test-parent</artifactId>
-   <packaging>pom</packaging>
-   <name>GateIn - WCI test parent</name>
+   <artifactId>wci-tomcat8</artifactId>
+   <packaging>jar</packaging>
+   <name>GateIn - WCI Tomcat 8 compatibility component</name>
 
-   <modules>
-     <module>core</module>
-     <module>servers</module>
-   </modules>
-
-  <dependencies>
-    <!-- NO DEPENDENCIES HERE -->
-  </dependencies>
-
+   <dependencies>
+      <dependency>
+         <groupId>org.exoplatform.gatein.wci</groupId>
+         <artifactId>wci-wci</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.tomcat</groupId>
+         <artifactId>tomcat-catalina</artifactId>
+         <scope>provided</scope>
+      </dependency>
+   </dependencies>
 </project>
