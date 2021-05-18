@@ -26,8 +26,11 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
    <packaging>jar</packaging>
    <name>GateIn - WCI test component</name>
 
-  <dependencies>
+  <properties>
+    <exo.test.coverage.ratio>0</exo.test.coverage.ratio>
+  </properties>
 
+  <dependencies>
     <dependency>
       <groupId>org.exoplatform.gatein.wci</groupId>
       <artifactId>wci-wci</artifactId>

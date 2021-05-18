@@ -25,7 +25,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   <artifactId>wci-wci</artifactId>
   <packaging>jar</packaging>
   <name>GateIn - Web Container Integration component (wci)</name>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.gatein.common</groupId>
@@ -34,7 +34,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 
