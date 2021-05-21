@@ -15,26 +15,9 @@ along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>org.exoplatform.gatein.wci</groupId>
-    <artifactId>wci-parent</artifactId>
-    <version>6.2.x-SNAPSHOT</version>
-  </parent>
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>wci-wci</artifactId>
-  <packaging>jar</packaging>
-  <name>GateIn - Web Container Integration component (wci)</name>
+<Context debug="0" reloadable="true" privileged="true">
 
-  <dependencies>
-    <dependency>
-      <groupId>org.gatein.common</groupId>
-      <artifactId>common-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-    </dependency>
-  </dependencies>
+  <Realm className="org.gatein.wci.test.tomcat.AuthenticationRealm"/>
+  <Loader delegate="true"/>
 
-</project>
+</Context>
