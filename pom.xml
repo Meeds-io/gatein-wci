@@ -29,7 +29,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   
   <groupId>org.exoplatform.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>6.2.x-SNAPSHOT</version>
+  <version>6.2.x-security-fix-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <scm>
@@ -39,10 +39,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   </scm>
   
   <properties>
-    <!-- Config for eXo Release Manager-->
-    <org.exoplatform.depmgt.version>19.x-SNAPSHOT</org.exoplatform.depmgt.version>
-    
-    <!-- Sonar properties -->
+   <!-- Config for eXo Release Manager-->
+   <org.exoplatform.depmgt.version>19.x-security-fix-SNAPSHOT</org.exoplatform.depmgt.version>
+   
+   <!-- Sonar properties -->
     <sonar.organization>meeds-io</sonar.organization>
   </properties>
   
