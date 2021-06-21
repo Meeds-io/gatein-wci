@@ -15,33 +15,37 @@ along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>23-M12</version>
-    <relativePath />
+    <relativePath/>
   </parent>
-
+  
   <name>GateIn - Web Container Integration</name>
-
+  
   <groupId>org.exoplatform.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
   <version>6.2.x-SNAPSHOT</version>
   <packaging>pom</packaging>
-
+  
   <scm>
     <connection>scm:git:git://github.com/meeds-io/gatein-wci.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-wci.git</developerConnection>
     <url>https://github.com/meeds-io/gatein-wci</url>
   </scm>
-
+  
   <properties>
-   <!-- Config for eXo Release Manager-->
-   <org.exoplatform.depmgt.version>19.x-SNAPSHOT</org.exoplatform.depmgt.version>
+    <!-- Config for eXo Release Manager-->
+    <org.exoplatform.depmgt.version>19.x-SNAPSHOT</org.exoplatform.depmgt.version>
+    
+    <!-- Sonar properties -->
+    <sonar.organization>meeds-io</sonar.organization>
   </properties>
-
+  
   <dependencyManagement>
     <dependencies>
       <!-- Import versions of external dependencies to use -->
@@ -52,7 +56,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+      
       <!-- Internal dependencies -->
       <dependency>
         <groupId>org.exoplatform.gatein.wci</groupId>
@@ -84,11 +88,41 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
       </dependency>
     </dependencies>
   </dependencyManagement>
-
+  
   <modules>
     <module>wci</module>
     <module>tomcat</module>
     <module>test</module>
   </modules>
+  
+  <!-- This profile is used to allow github action to build branches. The github action is used for sonar analysis -->
+  <profiles>
+    <profile>
+      <id>project-repositories</id>
+      <activation>
+        <property>
+          <name>!skip-project-repositories</name>
+        </property>
+      </activation>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>repository.exoplatform.org</id>
+          <url>https://repository.exoplatform.org/public</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>repository.exoplatform.org</id>
+          <url>https://repository.exoplatform.org/public</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
 
 </project>
