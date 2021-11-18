@@ -19,7 +19,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
    <parent>
       <groupId>org.exoplatform.gatein.wci</groupId>
       <artifactId>wci-test-servers</artifactId>
-      <version>6.3.x-SNAPSHOT</version>
+      <version>6.3.0-20211118</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
    <artifactId>wci-test-tomcat</artifactId>
