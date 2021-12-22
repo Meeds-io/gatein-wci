@@ -37,8 +37,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.wci.api.GateInServlet;
 import org.gatein.wci.authentication.AuthenticationEvent;
 import org.gatein.wci.authentication.AuthenticationEventType;
@@ -58,7 +58,7 @@ import org.gatein.wci.spi.WebAppContext;
 public final class ServletContainer
 {
 
-   private final static Logger log = LoggerFactory.getLogger(ServletContainer.class);
+  private final static Log                   log                     = ExoLogger.getLogger(ServletContainer.class);
 
    /** . */
    private final Object lock = new Object();

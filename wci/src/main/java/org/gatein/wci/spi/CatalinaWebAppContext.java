@@ -16,8 +16,8 @@
  */
 package org.gatein.wci.spi;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.wci.command.CommandServlet;
 
 import javax.naming.InitialContext;
@@ -31,7 +31,7 @@ import java.io.InputStream;
  * @author <a href="http://community.jboss.org/people/kenfinni">Ken Finnigan</a>
  */
 public abstract class CatalinaWebAppContext implements WebAppContext {
-    protected final static Logger log = LoggerFactory.getLogger(CatalinaWebAppContext.class);
+  protected final static Log    log                            = ExoLogger.getLogger(CatalinaWebAppContext.class);
 
     protected static final String GATEIN_SERVLET_NAME = "TomcatGateInServlet";
     protected static final String GATEIN_SERVLET_PATH = "/tomcatgateinservlet";
