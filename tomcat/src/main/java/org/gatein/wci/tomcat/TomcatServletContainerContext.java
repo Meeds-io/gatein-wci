@@ -33,13 +33,11 @@ import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.core.StandardContext;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.wci.RequestDispatchCallback;
 import org.gatein.wci.ServletContainer;
 import org.gatein.wci.ServletContainerFactory;
-import org.gatein.wci.ServletContainerVisitor;
-import org.gatein.wci.WebApp;
 import org.gatein.wci.authentication.AuthenticationException;
 import org.gatein.wci.command.CommandDispatcher;
 import org.gatein.wci.command.TomcatCommandDispatcher;
@@ -67,7 +65,7 @@ import java.util.Set;
  */
 public class TomcatServletContainerContext implements ServletContainerContext, ContainerListener, LifecycleListener
 {
-   private final static Logger log = LoggerFactory.getLogger(TomcatServletContainerContext.class);
+  private final static Log                     log                     = ExoLogger.getLogger(TomcatServletContainerContext.class);
 
    private static TomcatServletContainerContext instance;
 
