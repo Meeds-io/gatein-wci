@@ -26,9 +26,8 @@ import org.apache.catalina.Container;
 import org.apache.catalina.ContainerServlet;
 import org.apache.catalina.Engine;
 import org.apache.catalina.Wrapper;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
@@ -38,7 +37,7 @@ import javax.servlet.http.HttpServlet;
  */
 public class TomcatContainerServlet extends HttpServlet implements ContainerServlet
 {
-  private static final Log              log                      = ExoLogger.getLogger(TomcatContainerServlet.class);
+  private static final Logger           log                      = LoggerFactory.getLogger(TomcatContainerServlet.class);
 
    /** Servlet context init parameter name that can be used to turn off cross-context logout */
    private static final String CROSS_CONTEXT_LOGOUT_KEY = "org.gatein.wci.cross_context_logout";
