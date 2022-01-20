@@ -16,21 +16,16 @@
  */
 package org.gatein.wci.test.tomcat;
 
+import java.security.Principal;
+import java.util.Arrays;
+
 import org.apache.catalina.Container;
 import org.apache.catalina.realm.GenericPrincipal;
 import org.apache.catalina.realm.RealmBase;
 
-import java.security.Principal;
-import java.util.Arrays;
-
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class AuthenticationRealm extends RealmBase
 {
-
-   @Override
-   protected String getName() {
-      return "AuthenticationRealm";
-   }
 
    @Override
    public void setContainer(Container container) {

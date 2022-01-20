@@ -51,7 +51,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <!-- Arquillian container -->
     <dependency>
       <groupId>org.jboss.arquillian.container</groupId>
-      <artifactId>arquillian-tomcat-embedded-8</artifactId>
+      <artifactId>arquillian-tomcat-embedded-9</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
