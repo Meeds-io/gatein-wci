@@ -22,18 +22,18 @@
  ******************************************************************************/
 package org.gatein.wci.tomcat;
 
-import org.apache.catalina.Context;
-import org.apache.catalina.Manager;
-import org.apache.catalina.Session;
-import org.apache.catalina.Wrapper;
-import org.gatein.wci.command.CommandServlet;
-import org.gatein.wci.spi.CatalinaWebAppContext;
+import java.io.IOException;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+
+import org.apache.catalina.Context;
+import org.apache.catalina.Manager;
+import org.apache.catalina.Session;
+import org.apache.catalina.Wrapper;
+import org.gatein.wci.spi.CatalinaWebAppContext;
 
 /**
  * @author <a href="mailto:alain.defrance@exoplatform.com">Alain Defrance</a>
@@ -69,7 +69,7 @@ public class TomcatWebAppContext extends CatalinaWebAppContext
          commandServlet.setLoadOnStartup(GATEIN_SERVLET_LOAD_ON_STARTUP);
          commandServlet.setServletClass(className);
          context.addChild(commandServlet);
-         context.addServletMapping(GATEIN_SERVLET_PATH, GATEIN_SERVLET_NAME);
+         context.addServletMappingDecoded(GATEIN_SERVLET_PATH, GATEIN_SERVLET_NAME);
       }
       catch (Exception e)
       {

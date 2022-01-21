@@ -275,9 +275,11 @@ public class TomcatServletContainerContext implements ServletContainerContext, C
       }
 
       //
-      registration.cancel();
-      registration = null;
-   }
+      if (registration != null) {
+        registration.cancel();
+        registration = null;
+      }
+    }
 
    /**
     * Register an host for registration which means that we fire events for all the contexts it contains and we
