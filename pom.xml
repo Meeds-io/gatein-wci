@@ -15,27 +15,27 @@ along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>maven-parent-pom</artifactId>
     <groupId>org.exoplatform</groupId>
     <version>25-exo-M07</version>
-    <relativePath/>
+    <relativePath />
   </parent>
   
   <name>GateIn - Web Container Integration</name>
   
   <groupId>org.exoplatform.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>6.4.x-exo-SNAPSHOT</version>
+  <version>6.4.0-exo-20230117</version>
   <packaging>pom</packaging>
   
   <scm>
     <connection>scm:git:git://github.com/meeds-io/gatein-wci.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-wci.git</developerConnection>
     <url>https://github.com/meeds-io/gatein-wci</url>
+    <tag>6.4.0-exo-20230117</tag>
   </scm>
   
   <properties>
