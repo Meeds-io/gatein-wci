@@ -16,18 +16,19 @@
  */
 package org.gatein.wci.test.servletlistener;
 
+import java.io.IOException;
+
 import org.gatein.wci.RequestDispatchCallback;
 import org.gatein.wci.ServletContainer;
 import org.gatein.wci.ServletContainerFactory;
 import org.gatein.wci.WebApp;
 import org.gatein.wci.test.WebAppRegistry;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @author <a href="http://community.jboss.org/people/kenfinni">Ken Finnigan</a>

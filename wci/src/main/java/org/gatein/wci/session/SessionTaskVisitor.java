@@ -21,10 +21,10 @@
  */
 package org.gatein.wci.session;
 
-import javax.servlet.http.HttpSession;
-
 import org.gatein.wci.ServletContainerVisitor;
 import org.gatein.wci.WebApp;
+
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Wrapper around {@link SessionTask}. The point of this visitor is the possibility to run given task on every existing HTTP session

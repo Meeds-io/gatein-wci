@@ -16,16 +16,18 @@
  */
 package org.gatein.wci.spi;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.gatein.wci.command.CommandServlet;
+import java.io.IOException;
+import java.io.InputStream;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
-import java.io.IOException;
-import java.io.InputStream;
+
+import org.gatein.wci.command.CommandServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletRequest;
 
 /**
  * @author <a href="http://community.jboss.org/people/kenfinni">Ken Finnigan</a>

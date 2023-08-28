@@ -22,6 +22,12 @@
  ******************************************************************************/
 package org.gatein.wci.tomcat;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.apache.catalina.Container;
 import org.apache.catalina.ContainerEvent;
 import org.apache.catalina.ContainerListener;
@@ -33,8 +39,6 @@ import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.core.StandardContext;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 import org.gatein.wci.RequestDispatchCallback;
 import org.gatein.wci.ServletContainer;
 import org.gatein.wci.ServletContainerFactory;
@@ -45,17 +49,14 @@ import org.gatein.wci.security.Credentials;
 import org.gatein.wci.session.SessionTask;
 import org.gatein.wci.session.SessionTaskVisitor;
 import org.gatein.wci.spi.ServletContainerContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * An implementation of the <code>ServletContainerContext</code> for Tomcat 7.

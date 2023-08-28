@@ -16,8 +16,9 @@
  */
 package org.gatein.wci.test.deployment;
 
-import junit.framework.Assert;
-import junit.framework.AssertionFailedError;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.gatein.wci.ServletContainer;
 import org.gatein.wci.ServletContainerFactory;
 import org.gatein.wci.WebApp;
@@ -32,8 +33,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import junit.framework.Assert;
+import junit.framework.AssertionFailedError;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public abstract class AbstractDeploymentTestCase extends AbstractWCITestCase

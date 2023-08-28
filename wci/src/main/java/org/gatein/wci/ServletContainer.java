@@ -30,13 +30,6 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.gatein.wci.api.GateInServlet;
 import org.gatein.wci.authentication.AuthenticationEvent;
 import org.gatein.wci.authentication.AuthenticationEventType;
@@ -46,8 +39,15 @@ import org.gatein.wci.command.CommandDispatcher;
 import org.gatein.wci.security.Credentials;
 import org.gatein.wci.spi.ServletContainerContext;
 import org.gatein.wci.spi.WebAppContext;
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * A static registry for the servlet container context.
@@ -591,5 +591,6 @@ public final class ServletContainer
       {
          context.fireRequestDestroyed(servletRequest);
       }
+
    }
 }
