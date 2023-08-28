@@ -20,8 +20,8 @@ package org.gatein.wci.authentication;
 import org.gatein.wci.security.Credentials;
 import org.gatein.wci.spi.ServletContainerContext;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @author <a href="mailto:alain.defrance@exoplatform.com">Alain Defrance</a>

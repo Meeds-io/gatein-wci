@@ -26,10 +26,11 @@ import org.apache.catalina.Container;
 import org.apache.catalina.ContainerServlet;
 import org.apache.catalina.Engine;
 import org.apache.catalina.Wrapper;
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import org.slf4j.LoggerFactory;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
 
 /**
  * @author <a href="mailto:alain.defrance@exoplatform.com">Alain Defrance</a>

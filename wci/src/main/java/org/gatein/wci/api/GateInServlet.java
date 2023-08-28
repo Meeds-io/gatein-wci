@@ -27,7 +27,7 @@ import org.gatein.wci.command.CommandServlet;
 import org.gatein.wci.spi.SimpleWebAppContext;
 import org.gatein.wci.spi.WebAppContext;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>

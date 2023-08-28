@@ -16,13 +16,14 @@
  */
 package org.gatein.wci.test.requestdispatch;
 
+import java.io.IOException;
+
 import org.gatein.wci.ServletContextDispatcher;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class NormalCallback extends AbstractCallback
 {

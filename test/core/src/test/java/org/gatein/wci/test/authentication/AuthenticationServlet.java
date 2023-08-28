@@ -16,6 +16,9 @@
  */
 package org.gatein.wci.test.authentication;
 
+import java.io.IOException;
+import java.util.LinkedList;
+
 import org.gatein.wci.ServletContainer;
 import org.gatein.wci.ServletContainerFactory;
 import org.gatein.wci.authentication.AuthenticationEvent;
@@ -23,12 +26,10 @@ import org.gatein.wci.authentication.AuthenticationException;
 import org.gatein.wci.authentication.AuthenticationListener;
 import org.gatein.wci.security.Credentials;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.LinkedList;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class AuthenticationServlet extends HttpServlet
