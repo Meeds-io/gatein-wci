@@ -24,14 +24,14 @@ package org.gatein.wci.spi;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.gatein.wci.RequestDispatchCallback;
 import org.gatein.wci.authentication.AuthenticationException;
 import org.gatein.wci.security.Credentials;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Defines the service provider interface for a servlet container. It is an attempt to abstract the non

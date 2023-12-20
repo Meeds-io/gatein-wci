@@ -22,13 +22,12 @@
  ******************************************************************************/
 package org.gatein.wci.spi;
 
-import org.gatein.wci.spi.WebAppContext;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpSession;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>

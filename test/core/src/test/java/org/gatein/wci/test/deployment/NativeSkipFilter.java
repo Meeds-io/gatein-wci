@@ -16,9 +16,10 @@
  */
 package org.gatein.wci.test.deployment;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
 import java.util.HashSet;
+
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class NativeSkipFilter implements ServletContextListener

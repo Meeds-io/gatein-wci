@@ -16,7 +16,9 @@
  */
 package org.gatein.wci.test.requestdispatch;
 
-import junit.framework.Assert;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import org.gatein.wci.test.AbstractWCITestCase;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
@@ -26,8 +28,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+import junit.framework.Assert;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public abstract class AbstractRequestDispatchTestCase extends AbstractWCITestCase
