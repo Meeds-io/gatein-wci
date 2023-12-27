@@ -64,9 +64,8 @@ public class CrossContextServlet extends HttpServlet
 
       //
       HttpSession session = req.getSession(false);
-      if (session != null)
-      {
-         throw new ServletException("Was not expecting a session to exist");
+      if (session != null) {
+          throw new ServletException("Was not expecting a session to exist");
       }
 
       // Authenticate
@@ -77,24 +76,20 @@ public class CrossContextServlet extends HttpServlet
       String id = session.getId();
 
       //
-      String dispatchedId = (String)container.include(app.getServletContext(), req, resp, new RequestDispatchCallback()
-      {
-         @Override
-         public Object doCallback(ServletContext dispatchedCtx, HttpServletRequest dispatchedReq, HttpServletResponse dispatchedResp, Object handback) throws ServletException, IOException
-         {
-            if (dispatchedReq.getSession(false) != null)
-            {
-               throw new ServletException("Was not expecting a session to exist");
-            }
-            HttpSession dispatchedSession = dispatchedReq.getSession();
-            dispatchedSession.setAttribute("payload", "foo");
-            return dispatchedSession.getId();
-         }
+      String dispatchedId = (String)container.include(app.getServletContext(), req, resp, new RequestDispatchCallback() {
+        @Override
+        public Object doCallback(ServletContext dispatchedCtx,
+                                 HttpServletRequest dispatchedReq,
+                                 HttpServletResponse dispatchedResp,
+                                 Object handback) throws ServletException, IOException {
+          HttpSession dispatchedSession = dispatchedReq.getSession();
+          dispatchedSession.setAttribute("payload", "foo");
+          return dispatchedSession.getId();
+        }
       }, null);
 
       //
-      if (!id.equals(dispatchedId))
-      {
+      if (!id.equals(dispatchedId)) {
          throw new ServletException("Was expecting session ids to be the same");
       }
 
