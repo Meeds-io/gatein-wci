@@ -27,7 +27,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
    <name>GateIn - WCI test servers</name>
 
    <modules>
-     <module>tomcat8</module>
+     <module>tomcat</module>
    </modules>
 
   <dependencies>

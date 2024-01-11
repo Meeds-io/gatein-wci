@@ -31,7 +31,9 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.MappingMatch;
 
 /**
  * This servlet is used to execute command coming from another context through a dispatching request. The invocation is
@@ -82,7 +84,11 @@ public class CommandServlet extends HttpServlet
       {
          localCmd.set(callback);
          RequestDispatcher switcher = targetContext.getRequestDispatcher(servletPath);
-         switcher.include(request, response);
+         switcher.include(new HttpServletRequestWrapper(request) {
+           public String getContextPath() {
+             return targetContext.getContextPath();
+           }
+         }, response);
 
          //
          Throwable throwable = localThrowable.get();
