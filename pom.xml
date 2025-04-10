@@ -28,13 +28,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   
   <groupId>io.meeds.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>7.0.x-SNAPSHOT</version>
+  <version>7.0.0</version>
   <packaging>pom</packaging>
   
   <scm>
     <connection>scm:git:git://github.com/meeds-io/gatein-wci.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-wci.git</developerConnection>
     <url>https://github.com/meeds-io/gatein-wci</url>
+    <tag>7.0.0</tag>
   </scm>
   
   <properties>
