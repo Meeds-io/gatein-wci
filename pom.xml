@@ -42,7 +42,7 @@
   
   <properties>
     <!-- Config for eXo Release Manager-->
-    <io.meeds.depmgt.version>24.x-meed-SNAPSHOT</io.meeds.depmgt.version>
+    <io.meeds.depmgt.version>24.0-meed-20250803</io.meeds.depmgt.version>
     <!-- Sonar properties -->
     <sonar.organization>meeds-io</sonar.organization>
     
