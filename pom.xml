@@ -30,14 +30,14 @@
   
   <groupId>io.meeds.gatein.wci</groupId>
   <artifactId>wci-parent</artifactId>
-  <version>7.1.x-SNAPSHOT</version>
+  <version>7.1.0</version>
   <packaging>pom</packaging>
   
   <scm>
     <connection>scm:git:git://github.com/meeds-io/gatein-wci.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-wci.git</developerConnection>
     <url>https://github.com/meeds-io/gatein-wci</url>
-    <tag>HEAD</tag>
+    <tag>7.1.0</tag>
   </scm>
   
   <properties>
