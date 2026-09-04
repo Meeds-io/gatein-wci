@@ -43,6 +43,6 @@ public class AuthenticationRealm extends RealmBase
 
    @Override
    protected Principal getPrincipal(String username) {
-      return new GenericPrincipal(username, username, Arrays.asList("myrole"));
+      return new GenericPrincipal(username, Arrays.asList("myrole"));
    }
 }
